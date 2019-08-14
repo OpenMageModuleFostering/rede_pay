@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Rede_Pay",
+    "type": "magento-module",
+    "license": "Open-Software-License",
+    "homepage": "",
+    "description": "The ideal partner for your e-commerce. O parceiro ideal para o seu e-commerce.",
+    "authors": [
+    {
+        "name": "Tiago Sampaio",
+        "email": "tiago@tiagosampaio.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

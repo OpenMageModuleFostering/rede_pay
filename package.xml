@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Rede_Pay</name>
+    <version>1.2.2.0</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">Open Software License</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>The ideal partner for your e-commerce. O parceiro ideal para o seu e-commerce.</summary>
+    <description>A complete solution for online payment methods, which aims to facilitate purchases and payments in e-commerce. You and your company have many benefits at your disposal, from the simplicity to the integration process * with your online store, even with possibility of guarantee against chargeback *. The service is responsive, safe and accepts the main market banners, like Visa, MasterCard, Hiper, Hipercard and Diners.</description>
+    <notes>Changes or URL</notes>
+    <authors><author><name>Tiago Sampaio</name><user>tiagosampaio</user><email>tiago@tiagosampaio.com</email></author></authors>
+    <date>2016-09-13</date>
+    <time>18:20:40</time>
+    <contents><target name="magelocal"><dir name="."><dir name="app"><dir name="design"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><dir name="rede"><file name="pay.xml" hash=""/></dir></dir></dir></dir></dir><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><dir name="rede"><file name="pay.xml" hash=""/></dir></dir></dir></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="."><dir name="app"><dir name="etc"><dir name="modules"><file name="Rede_Pay.xml" hash=""/></dir></dir></dir></dir></target><target name="magelocale"><dir name="."><dir name="app"><dir name="locale"><dir name="pt_BR"><dir name="Rede"><file name="Pay.csv" hash=""/></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.3.6</min><max>5.6.10</max></php></required></dependencies>
+</package>
