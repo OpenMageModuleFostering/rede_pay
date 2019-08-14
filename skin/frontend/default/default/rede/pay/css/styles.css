@@ -1,0 +1,28 @@
+/**
+ * @author Tiago Sampaio <tiago@tiagosampaio.com>
+ */
+.paid-with-info,
+.paying-with-info {
+    display: block;
+    padding-top: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    vertical-align: middle;
+    overflow: auto;
+}
+
+.paid-with-info span,
+.paying-with-info span {
+    padding: 8px 8px 0 0;
+    float: left;
+}
+
+.paid-with-info img,
+.paying-with-info img {
+    float: left;
+}
+
+.button-container {
+    display: block;
+    margin-top: 20px;
+}

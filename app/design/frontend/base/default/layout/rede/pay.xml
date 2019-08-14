@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Tiago Sampaio <tiago@tiagosampaio.com>
+ */
+-->
+<layout version="0.1.0">
+
+    <rede_pay_checkout_success>
+        <update handle="INIT_LAYOUT"/>
+        <reference name="content">
+            <block type="rede_pay/checkout_success" name="redepay.checkout.success"/>
+        </reference>
+    </rede_pay_checkout_success>
+    <rede_pay_checkout_pending>
+        <update handle="INIT_LAYOUT"/>
+        <reference name="content">
+            <block type="rede_pay/checkout_pending" name="redepay.checkout.pending"/>
+        </reference>
+    </rede_pay_checkout_pending>
+    <rede_pay_checkout_state>
+        <update handle="INIT_LAYOUT"/>
+        <reference name="content">
+            <block type="rede_pay/checkout_state" name="redepay.checkout.state"/>
+        </reference>
+    </rede_pay_checkout_state>
+    <rede_pay_checkout_denied>
+        <update handle="INIT_LAYOUT"/>
+        <reference name="content">
+            <block type="rede_pay/checkout_denied" name="redepay.checkout.denied"/>
+        </reference>
+    </rede_pay_checkout_denied>
+    <rede_pay_checkout_error>
+        <update handle="INIT_LAYOUT"/>
+        <reference name="content">
+            <block type="rede_pay/checkout_error" name="redepay.checkout.error"/>
+        </reference>
+    </rede_pay_checkout_error>
+    <rede_pay_checkout_payment>
+        <update handle="INIT_LAYOUT"/>
+        <reference name="content">
+            <block type="rede_pay/checkout_payment" name="redepay.checkout.payment"/>
+        </reference>
+    </rede_pay_checkout_payment>
+
+    <INIT_LAYOUT>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="head">
+            <action method="addCss">
+                <name>rede/pay/css/styles.css</name>
+            </action>
+        </reference>
+    </INIT_LAYOUT>
+
+</layout>

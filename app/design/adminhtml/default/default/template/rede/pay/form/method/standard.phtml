@@ -1,0 +1,14 @@
+<?php
+/**
+ * @author Tiago Sampaio <tiago@tiagosampaio.com>
+ *
+ * @var Rede_Pay_Block_Form_Method_Standard $this
+ */
+?>
+<?php $_code = $this->getMethodCode() ?>
+<ul id="payment_form_<?php echo $_code ?>" style="display:none">
+    <li>
+        <p><?php echo $this->getTextMessage() ?></p>
+        <img src="<?php echo $this->getSkinUrl('rede/pay/images/redepay.png') ?>" alt="<?php echo $this->__('Rede Pay') ?>"/>
+    </li>
+</ul>

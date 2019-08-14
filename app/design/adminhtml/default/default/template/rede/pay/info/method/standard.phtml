@@ -1,0 +1,51 @@
+<?php
+/**
+ * @author Tiago Sampaio <tiago@tiagosampaio.com>
+ *
+ * @var Rede_Pay_Block_Info_Method_Standard $this
+ */
+?>
+<p>
+    <span><?php echo $this->__('Order paid with:') ?></span>
+    <br/>
+    <br/>
+    <?php echo $this->getLogoHtml() ?>
+    <br/>
+    <?php if ($this->getPaymentId()): ?>
+    <p id="payment-id"><strong><?php echo $this->__('Rede Order ID') ?>: </strong><?php echo $this->getPaymentId() ?></p>
+    <?php endif; ?>
+    <?php if ($this->getTransactionId()): ?>
+    <p id="transaction-id"><strong><?php echo $this->__('Transaction ID') ?>: </strong><?php echo $this->getTransactionId() ?></p>
+    <?php endif; ?>
+    <?php if ($this->getPayments()->getPaymentMethod()): ?>
+    <p id="payment-method"><strong><?php echo $this->__('Payment Method') ?>: </strong><?php echo $this->getPayments()->getPaymentMethod() ?></p>
+    <?php endif; ?>
+    <?php if ($this->getPayments()->getCardBrand()): ?>
+    <p id="card-brand"><strong><?php echo $this->__('Card Brand') ?>: </strong><?php echo $this->getPayments()->getCardBrand() ?></p>
+    <?php endif; ?>
+    <?php if ($this->getPayments()->getInstallments()): ?>
+    <p id="installments"><strong><?php echo $this->__('Instalments Amount') ?>: </strong><?php echo $this->getPayments()->getInstallments() ?></p>
+    <?php endif; ?>
+    <?php if ($this->getPayments()->getNsu()): ?>
+    <p id="nsu"><strong><?php echo $this->__('NSU') ?>: </strong><?php echo $this->getPayments()->getNsu() ?></p>
+    <?php endif; ?>
+    <?php if ($this->getPayments()->getTid()): ?>
+    <p id="tid"><strong><?php echo $this->__('TID') ?>: </strong><?php echo $this->getPayments()->getTid() ?></p>
+    <?php endif; ?>
+</p>
+<br/>
+<?php if ($_specificInfo = $this->getSpecificInformation()):?>
+<table>
+    <tbody>
+    <?php foreach ($_specificInfo as $_label => $_value):?>
+        <tr>
+            <th><strong><?php echo $this->escapeHtml($_label)?>:</strong></th>
+        </tr>
+        <tr>
+            <td><?php echo nl2br(implode($this->getValueAsArray($_value, true), "\n"))?></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
+<?php endif;?>
+<?php echo $this->getChildHtml()?>

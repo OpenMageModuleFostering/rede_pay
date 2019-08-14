@@ -1,0 +1,403 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Tiago Sampaio <tiago@tiagosampaio.com>
+ */
+-->
+<config>
+    <sections>
+        <payment>
+            <groups>
+                <rede_pay translate="label comment" module="rede_pay">
+                    <label>Rede Pay</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <frontend_class>redepay complex</frontend_class>
+                    <frontend_model>rede_pay/adminhtml_system_config_fieldset_group</frontend_model>
+                    <register_url><![CDATA[https://portal.useredepay.com.br/credenciamento/#/]]></register_url>
+                    <comment><![CDATA[Register with us now to get all the advantages.]]></comment>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <title translate="label">
+                            <label>Title</label>
+                            <frontend_type>label</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+                        <text_message translate="label comment">
+                            <label>Text Message</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>This text will appear to customer on the payment section in checkout page.</comment>
+                        </text_message>
+                        <order_status translate="label comment">
+                            <label>New Order Status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_order_status_new</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>The order status to new orders.</comment>
+                        </order_status>
+                        <approved_order_status translate="label comment">
+                            <label>Approved Order Status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_order_status_processing</source_model>
+                            <sort_order>105</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>The order status when the order is approved by Payment Gateway.</comment>
+                        </approved_order_status>
+                        <debug translate="label comment">
+                            <label>Debug</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Enables the debug mode for this payment method.</comment>
+                        </debug>
+                        <installments_amount translate="label comment">
+                            <label>Installments Amount</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>rede_pay/system_config_source_installments</source_model>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <frontend_class>validate-number</frontend_class>
+                            <validate>validate-number</validate>
+                            <comment>Max quantity of installments that will be available to customers.</comment>
+                        </installments_amount>
+                        <installments_min_order_value translate="label comment">
+                            <label>Installments Order Minimum Value</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>135</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-number required-entry</validate>
+                            <comment>Defines the minimum value of the order to enable the installments.</comment>
+                        </installments_min_order_value>
+                        <installments_min_parcel_value translate="label comment">
+                            <label>Installments Parcel Minimum Value</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-number required-entry</validate>
+                            <comment>Defines the minimum value of each parcel according to the value inserted. The maximum quantity of parcels will be calculated automatically.</comment>
+                        </installments_min_parcel_value>
+                        <!--
+                        <payment_retries_enabled translate="label comment">
+                            <label>Enable Payment Retry</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Defines if the customer can retry to pay the order.</comment>
+                        </payment_retries_enabled>
+                        <max_payment_retries translate="label comment">
+                            <label>Max Payment Retries</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>160</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-number required-entry</validate>
+                            <comment>Defines the max times the customer can retry to pay the order.</comment>
+                            <depends>
+                                <payment_retries_enabled>1</payment_retries_enabled>
+                            </depends>
+                        </max_payment_retries>
+                        -->
+                        <api_configuration type="group" translate="label comment">
+                            <group>api_configuration</group>
+                            <label>API Configuration</label>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <sort_order>200</sort_order>
+                            <frontend_model>paypal/adminhtml_system_config_fieldset_payment</frontend_model>
+                            <frontend_class>complex</frontend_class>
+                            <comment>Configure all the parameters needed to API communication.</comment>
+                            <fields>
+                                <test translate="label">
+                                    <label>Test Mode</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>10</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <config_path>payment/rede_pay/test</config_path>
+                                </test>
+                                <api_order_url translate="label comment">
+                                    <label>API Order URL</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>20</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <config_path>payment/rede_pay/api_order_url</config_path>
+                                    <validate>validate-url</validate>
+                                    <comment>Be careful on changing this parameter.</comment>
+                                    <depends>
+                                        <test>1</test>
+                                    </depends>
+                                </api_order_url>
+                                <api_consult_url translate="label comment">
+                                    <label>API Consult URL</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>25</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <config_path>payment/rede_pay/api_consult_url</config_path>
+                                    <validate>validate-url</validate>
+                                    <comment>Be careful on changing this parameter.</comment>
+                                    <depends>
+                                        <test>1</test>
+                                    </depends>
+                                </api_consult_url>
+                                <api_refund_url translate="label comment">
+                                    <label>API Refund URL</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>30</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <config_path>payment/rede_pay/api_refund_url</config_path>
+                                    <validate>validate-url</validate>
+                                    <comment>Be careful on changing this parameter.</comment>
+                                    <depends>
+                                        <test>1</test>
+                                    </depends>
+                                </api_refund_url>
+                                <redepay_script_url translate="label comment">
+                                    <label>Rede Pay Script URL</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>35</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <config_path>payment/rede_pay/redepay_script_url</config_path>
+                                    <validate>validate-url</validate>
+                                    <comment>Be careful on changing this parameter.</comment>
+                                    <depends>
+                                        <test>1</test>
+                                    </depends>
+                                </redepay_script_url>
+                                <!-- Production Mode -->
+                                <secret_api_key>
+                                    <label>API Key</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>40</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <config_path>payment/rede_pay/secret_api_key</config_path>
+                                    <depends>
+                                        <test>0</test>
+                                    </depends>
+                                </secret_api_key>
+                                <notification_token>
+                                    <label>Token NIP</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>50</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <config_path>payment/rede_pay/notification_token</config_path>
+                                    <depends>
+                                        <test>0</test>
+                                    </depends>
+                                </notification_token>
+                                <publishable_api_key>
+                                    <label>Public Token</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>60</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <config_path>payment/rede_pay/publishable_api_key</config_path>
+                                    <depends>
+                                        <test>0</test>
+                                    </depends>
+                                </publishable_api_key>
+                                <!-- Test Mode -->
+                                <secret_api_key_test>
+                                    <label>API Key (Test Mode)</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>70</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <config_path>payment/rede_pay/secret_api_key_test</config_path>
+                                    <depends>
+                                        <test>1</test>
+                                    </depends>
+                                </secret_api_key_test>
+                                <notification_token_test>
+                                    <label>Token NIP (Test Mode)</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>80</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <config_path>payment/rede_pay/notification_token_test</config_path>
+                                    <depends>
+                                        <test>1</test>
+                                    </depends>
+                                </notification_token_test>
+                                <publishable_api_key_test>
+                                    <label>Public Token (Test Mode)</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>90</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <config_path>payment/rede_pay/publishable_api_key_test</config_path>
+                                    <depends>
+                                        <test>1</test>
+                                    </depends>
+                                </publishable_api_key_test>
+                                <url_notifications>
+                                    <label>URL for Notification</label>
+                                    <frontend_model>rede_pay/adminhtml_system_config_field_url</frontend_model>
+                                    <frontend_type>link</frontend_type>
+                                    <sort_order>100</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <helper_url>data::getNotificationUrl</helper_url>
+                                    <config_path>payment/rede_pay/url_notifications</config_path>
+                                    <comment>This URL must be set in your Payment Gateway panel for automatic notifications of order statuses.</comment>
+                                </url_notifications>
+                                <url_redirect>
+                                    <label>URL for Redirect</label>
+                                    <frontend_model>rede_pay/adminhtml_system_config_field_url</frontend_model>
+                                    <frontend_type>link</frontend_type>
+                                    <sort_order>110</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <helper_url>data::getRedirectUrl</helper_url>
+                                    <config_path>payment/rede_pay/url_redirect</config_path>
+                                    <comment>This URL must be set in your Payment Gateway panel for automatic notifications of redirect.</comment>
+                                </url_redirect>
+                            </fields>
+                        </api_configuration>
+                        <attribute_configuration type="group" translate="label comment">
+                            <group>attribute_configuration</group>
+                            <label>Attribute Configuration</label>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <sort_order>300</sort_order>
+                            <frontend_model>paypal/adminhtml_system_config_fieldset_payment</frontend_model>
+                            <frontend_class>complex</frontend_class>
+                            <comment>Configure all the attributes needed to correct checkout process.</comment>
+                            <fields>
+                                <taxvat translate="label">
+                                    <label>Taxvat</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>rede_pay/system_config_source_attributes_customer</source_model>
+                                    <sort_order>10</sort_order>
+                                    <config_path>payment/rede_pay/attributes_taxvat</config_path>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                </taxvat>
+                                <address_street translate="label">
+                                    <label>Address Street</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>rede_pay/system_config_source_attributes_customer_address</source_model>
+                                    <sort_order>20</sort_order>
+                                    <config_path>payment/rede_pay/attributes_street</config_path>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                </address_street>
+                                <address_number translate="label">
+                                    <label>Address Number</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>rede_pay/system_config_source_attributes_customer_address</source_model>
+                                    <sort_order>30</sort_order>
+                                    <config_path>payment/rede_pay/attributes_number</config_path>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                </address_number>
+                                <address_complement translate="label">
+                                    <label>Address Complement</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>rede_pay/system_config_source_attributes_customer_address</source_model>
+                                    <sort_order>40</sort_order>
+                                    <config_path>payment/rede_pay/attributes_complement</config_path>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                </address_complement>
+                                <address_neighborhood translate="label">
+                                    <label>Address Neighborhood</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>rede_pay/system_config_source_attributes_customer_address</source_model>
+                                    <sort_order>50</sort_order>
+                                    <config_path>payment/rede_pay/attributes_neighborhood</config_path>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                </address_neighborhood>
+                                <telephone translate="label">
+                                    <label>Phone Number</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>rede_pay/system_config_source_attributes_customer_address</source_model>
+                                    <sort_order>60</sort_order>
+                                    <config_path>payment/rede_pay/attributes_telephone</config_path>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                </telephone>
+                                <cellphone translate="label">
+                                    <label>Cellphone Number</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>rede_pay/system_config_source_attributes_customer_address</source_model>
+                                    <sort_order>70</sort_order>
+                                    <config_path>payment/rede_pay/attributes_cellphone</config_path>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                </cellphone>
+                            </fields>
+                        </attribute_configuration>
+                    </fields>
+                </rede_pay>
+            </groups>
+        </payment>
+    </sections>
+</config>

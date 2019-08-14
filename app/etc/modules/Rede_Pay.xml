@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Tiago Sampaio <tiago@tiagosampaio.com>
+ */
+-->
+<config>
+    <modules>
+        <Rede_Pay>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Rede_Pay>
+    </modules>
+</config>

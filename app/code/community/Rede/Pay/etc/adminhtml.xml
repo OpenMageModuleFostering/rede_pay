@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Tiago Sampaio <tiago@tiagosampaio.com>
+ */
+-->
+<config>
+    <menu>
+        <rede_pay translate="title" module="rede_pay">
+            <title>Rede Pay</title>
+            <sort_order>90</sort_order>
+            <depends>
+                <module>Rede_Pay</module>
+            </depends>
+            <children>
+                <configuration translate="title">
+                    <title>Configuration</title>
+                    <sort_order>90</sort_order>
+                    <action>adminhtml/system_config/edit/section/payment</action>
+                </configuration>
+            </children>
+        </rede_pay>
+    </menu>
+</config>

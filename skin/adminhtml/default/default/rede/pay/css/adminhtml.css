@@ -1,0 +1,37 @@
+<!--
+/**
+ * @author Tiago Sampaio <tiago@tiagosampaio.com>
+ */
+-->
+.redepay {
+
+}
+
+.redepay .with-button .button-container {
+    /*
+    background-image: url('../images/redepay.png');
+    background-repeat: no-repeat;
+    width: 400px;
+    padding: 4px;
+    */
+}
+
+.redepay .button {
+    background: transparent !important;
+    border: none;
+}
+
+.redepay .button .state-closed,
+.redepay .button .state-opened {
+    text-indent: -9999px;
+    width: 120px;
+    line-height: 32px;
+}
+
+.redepay .button .state-closed {
+    background-image: url('../images/bt_magento_configurar.png');
+}
+
+.redepay .button .state-opened {
+    background-image: url('../images/bt_magento_fechar.png');
+}
