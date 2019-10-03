@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Rede_Pay",
+    "name": "OpenMageModuleFostering\/Rede_Pay",
     "type": "magento-module",
     "license": "OSL",
     "homepage": "",
-    "description": "Módulo Rede Pay para plataforma Magento",
+    "description": "M\u00f3dulo Rede Pay para plataforma Magento",
     "authors": [
-    {
-        "name": "Tiago Sampaio",
-        "email": "tiago@tiagosampaio.com"
-    }
-],
+        {
+            "name": "Tiago Sampaio",
+            "email": "tiago@tiagosampaio.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
